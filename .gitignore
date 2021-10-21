@@ -1,0 +1,6 @@
+/.idea/
+/.gradle/
+/build/
+/core/build/
+/web-app/build/
+/telegram-bot/build/
