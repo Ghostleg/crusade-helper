@@ -1,0 +1,6 @@
+rootProject.name = 'crusade-helper'
+
+include 'web-app'
+include 'telegram-bot'
+include 'core'
+

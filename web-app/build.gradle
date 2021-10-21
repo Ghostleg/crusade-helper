@@ -1,0 +1,23 @@
+plugins {
+    id 'org.jetbrains.kotlin.js'
+}
+
+group 'ru.malygin'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-js"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-js"
+}
+
+kotlin {
+    js {
+        browser {
+        }
+        binaries.executable()
+    }
+}
