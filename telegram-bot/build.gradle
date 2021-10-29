@@ -13,6 +13,8 @@ ext{
 }
 
 dependencies {
+    implementation project(':core')
+
     //Telegram
     implementation "org.telegram:telegrambots:${versions.telegram}"
     implementation "org.telegram:telegrambotsextensions:${versions.telegram}"

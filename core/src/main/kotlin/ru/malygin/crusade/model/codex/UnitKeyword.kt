@@ -1,3 +1,7 @@
 package ru.malygin.crusade.model.codex
 
-enum class UnitKeyword
+enum class UnitKeyword {
+    MachineSpirit,
+    AdeptusAstartes,
+    VEHICLE
+}

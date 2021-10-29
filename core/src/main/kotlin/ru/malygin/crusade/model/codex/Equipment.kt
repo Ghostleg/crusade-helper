@@ -3,7 +3,7 @@ package ru.malygin.crusade.model.codex
 data class Equipment(
     val name: String,
     val profile: List<WeaponProfile>?,
-    val specialRules: List<String>,
+    val specialRules: List<String>?,
 )
 
 data class WeaponProfile(
