@@ -1,14 +1,16 @@
-package ru.malygin.crusade.service.mongo
+package ru.malygin.crusade.service
 
 import org.slf4j.LoggerFactory
 import ru.malygin.crusade.model.BattleExperience
 import ru.malygin.crusade.model.CrusadeUnit
 import ru.malygin.crusade.model.OrderOfBattle
 import ru.malygin.crusade.model.UnitBattleResult
+import ru.malygin.crusade.service.mongo.DBService
 
 interface IUnitService {
     fun registerBattleParticipation(unit: CrusadeUnit, battleResult: UnitBattleResult, orderOfBattle: OrderOfBattle)
-    fun listPlayerUnits(faction: String, playerNick: String) : List<CrusadeUnit>
+    fun listPlayerUnits(faction: String, playerNick: String): List<CrusadeUnit>
+    fun upgradeUnit(crusadeUnit: CrusadeUnit): CrusadeUnit
 }
 
 class UnitService(
@@ -23,7 +25,7 @@ class UnitService(
         val newExperience = battleExperience(unit.experience, battleResult)
 
         unit.copy(experience = newExperience)
-            .let { database.updateUnitStats(it, orderOfBattle) }
+            .let { database.updateUnitStats(it) }
     }
 
     override fun listPlayerUnits(faction: String, playerNick: String): List<CrusadeUnit> {
@@ -35,6 +37,11 @@ class UnitService(
         }
 
         return playersOrderOfBattle.forces
+    }
+
+    override fun upgradeUnit(crusadeUnit: CrusadeUnit): CrusadeUnit {
+        return database.updateUnitStats(crusadeUnit)
+            ?: return crusadeUnit.also { OrderOfBattleService.logger.warn("Failed to update Unit") }
     }
 
     private fun battleExperience(

@@ -12,6 +12,10 @@ ext{
     ]
 }
 
+configurations {
+    all*.exclude module : 'spring-boot-starter-logging'
+}
+
 group 'ru.malygin'
 version '1.0-SNAPSHOT'
 

@@ -1,12 +1,9 @@
 package ru.malygin.crusade.model.codex
 
-import org.bson.codecs.pojo.annotations.BsonCreator
-import org.bson.codecs.pojo.annotations.BsonProperty
-
-data class BattleHonour @BsonCreator constructor(
-    @BsonProperty("name") val name: String,
-    @BsonProperty("faction") val faction: CodexFaction,
-    @BsonProperty("acceptableKeywords") val acceptableKeywords: List<UnitKeyword>,
-    @BsonProperty("excludingKeywords") val excludingKeywords: List<UnitKeyword>? = emptyList(),
-    @BsonProperty("description") val description: String,
+data class BattleHonour constructor(
+    val name: String,
+    val faction: CodexFaction,
+    val acceptableKeywords: List<UnitKeyword>,
+    val excludingKeywords: List<UnitKeyword>? = emptyList(),
+    val description: String,
 )

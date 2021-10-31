@@ -1,12 +1,12 @@
 package ru.malygin.crusade.model.codex
 
-import org.bson.codecs.pojo.annotations.BsonCreator
-import org.bson.codecs.pojo.annotations.BsonProperty
+import org.springframework.data.mongodb.core.mapping.DBRef
 
 
-data class UnitCodexParameters @BsonCreator constructor(
-    @BsonProperty("battlefieldRole") val battlefieldRole: BattlefieldRole,
-    @BsonProperty("powerRating") val powerRating: Int,
-    /*@BsonProperty("unitType") val unitType: UnitType,*/
-    @BsonProperty("equipment") val equipment: List<Equipment> = emptyList(),
+data class UnitCodexParameters constructor(
+    val battlefieldRole: BattlefieldRole,
+    val powerRating: Int,
+    /*val unitType: UnitType,*/
+    @DBRef
+    val equipment: List<Equipment> = emptyList(),
 )
