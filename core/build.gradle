@@ -17,19 +17,19 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 
-    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
+    //compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
 
     implementation 'org.mongodb:mongodb-driver-core:4.3.0'
     implementation 'org.mongodb:mongodb-driver-sync:4.3.3'
-    compile 'org.springframework.data:spring-data-mongodb:3.2.6'
+    //compile 'org.springframework.data:spring-data-mongodb:3.2.6'
 
 
 }
 
 
 compileKotlin {
-    kotlinOptions.jvmTarget = "11"
+    kotlinOptions.jvmTarget = "17"
 }
 compileTestKotlin {
-    kotlinOptions.jvmTarget = "11"
+    kotlinOptions.jvmTarget = "17"
 }
